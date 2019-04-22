@@ -50,9 +50,6 @@ client.on('message', msg => {
                         return;
                         break;
                     } else {
-						if() {
-							
-						}
 						rcon.connect().then(() => {
 							return rcon.send(args); //Не трогать
 						}).then(res => {
