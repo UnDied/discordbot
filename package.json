@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node bot.js"
   },
+    "requires": true,
+  "lockfileVersion": 1,
   "dependencies": {
     "async-limiter": {
       "version": "1.0.0",
