@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const Rcon = require('modern-rcon');
+const rcon = new Rcon("127.0.0.1" /* ← Ркон айпи*/, 25569 /* ← Ркон порт*/, "РКОН ПАРОЛЬ" /* ← Ркон пароль*/, 5000);
 let token = "NTY4NDk5OTA3MzY4MDU4ODgx.XL340Q.O2jXIoDF6oGm9a5sPOJt3Gl5VWw";
 client.login(token);
 
@@ -36,13 +38,21 @@ client.on('message', msg => {
 			} else {
 				var blacklist = [];
                 blacklist[0] = "Блять";
+				blacklist[1] = "Пизда";
+				blacklist[2] = "Пидор";
+				blacklist[3] = "Сука";
                 for(var i = 0; i < blacklist.length; i++) {
                     if(args.toLowerCase().includes(blacklist[i].toLowerCase())) {
                         msg.delete();
-                        msg.channel.send("``Консоль`` › ``Не выражайся!``");
+                        msg.channel.send("``Бот`` › ``Не выражайся!``");
+						let role = msg.guild.roles.find(`name`, `Нарушитель`);
+						msg.member.addRole(role.id);
                         return;
                         break;
                     } else {
+						if() {
+							
+						}
 						rcon.connect().then(() => {
 							return rcon.send(args); //Не трогать
 						}).then(res => {
