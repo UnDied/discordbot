@@ -5,7 +5,7 @@ const rcon = new Rcon("127.0.0.1" /* ← Ркон айпи*/, 25569 /* ← Рк�
 let token = "NTY4NDk5OTA3MzY4MDU4ODgx.XL9Now.MF_tQC4gYYG6VvLfCEKyu7mzMtQ";
 client.login(token);
 
-client.user.setActivity("Напиши /cmd для дальнейшей информации!", { type: "WATCHING"});
+client.user.setActivity("Type /cmd!", { type: "WATCHING"});
 client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type.toLowerCase() == 'dm') {
