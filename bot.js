@@ -7,7 +7,10 @@ client.login(token);
 
 client.on('message', msg => {
 	if (msg.author.bot) return;
-	 if(msg.channel.name == "undefined") return;
+	if (msg.channel.type.toLowerCase() == 'dm') {
+		msg.channel.send("``Консоль`` › ``Тут бота использовать нельзя!``");
+		return;
+	}
 	if(msg.content == "/cmd") {
 		msg.channel.send("``Консоль`` › ``Используй так: /cmd <Твоя комманда>``");
 	} else {
