@@ -2,16 +2,17 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const Rcon = require('modern-rcon');
 const rcon = new Rcon("127.0.0.1" /* ← Ркон айпи*/, 25569 /* ← Ркон порт*/, "РКОН ПАРОЛЬ" /* ← Ркон пароль*/, 5000);
-let token = "токен";
+let token = "NTY4NDk5OTA3MzY4MDU4ODgx.XL9Now.MF_tQC4gYYG6VvLfCEKyu7mzMtQ";
 client.login(token);
 
+client.user.setActivity("Напиши /cmd для дальнейшей информации!", { type: "WATCHING"});
 client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.channel.type.toLowerCase() == 'dm') {
 		msg.channel.send("``Консоль`` › ``Тут бота использовать нельзя!``");
 		return;
 	}
-	if (msg.channel.id != "569947791187640330") {
+	if (msg.channel.get() != client.channels.get("569947791187640330")) {
 		msg.channel.send("``Бот`` › ``Используй бота в канале #комманды-ботов``");
 		return;
 	}
