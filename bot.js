@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const Rcon = require('modern-rcon');
 const rcon = new Rcon("127.0.0.1" /* ← Ркон айпи*/, 25569 /* ← Ркон порт*/, "РКОН ПАРОЛЬ" /* ← Ркон пароль*/, 5000);
-let token = "NTY4NDk5OTA3MzY4MDU4ODgx.XL340Q.O2jXIoDF6oGm9a5sPOJt3Gl5VWw";
+let token = "токен";
 client.login(token);
 
 client.on('message', msg => {
@@ -11,10 +11,14 @@ client.on('message', msg => {
 		msg.channel.send("``Консоль`` › ``Тут бота использовать нельзя!``");
 		return;
 	}
+	if (msg.channel.id != "569947791187640330") {
+		msg.channel.send("``Бот`` › ``Используй бота в канале #комманды-ботов``");
+		return;
+	}
 	if(msg.content == "/cmd") {
 		msg.channel.send("``Консоль`` › ``Используй так: /cmd <Твоя комманда>``");
 	} else {
-		let rolename = msg.guild.roles.find(`name`, `RCON` /* ← Там где `RCON` - название роли которая сможет использовать бота*/);
+		let rolename = msg.guild.roles.find(`name`, `Ркон` /* ← Там где `RCON` - название роли которая сможет использовать бота*/);
 		if(msg.content.startsWith("/cmd ")) {
 			if(!msg.member.roles.has(rolename.id)) {
 				msg.channel.send("``Консоль`` › ``Нет прав :c``");
