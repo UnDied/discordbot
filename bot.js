@@ -7,6 +7,7 @@ client.login(token);
 
 client.on('message', msg => {
 	if (msg.author.bot) return;
+	if(message.channel.name == undefined) return;
 	if(msg.content == "/cmd") {
 		msg.channel.send("``Консоль`` › ``Используй так: /cmd <Твоя комманда>``");
 	} else {
