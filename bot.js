@@ -22,21 +22,6 @@ client.on('message', msg => {
 				console.log("Пользователь с айди " + msg.author.id + " попытался использовать бота, но у него недостаточно прав.");
 		    	return;
 			}
-			var blocked = [];
-			blocked[0] = 'op';
-			blocked[1] = 'deop';
-			blocked[2] = 'pex';
-			blocked[3] = 'permissionsex';
-			blocked[4] = 'permissionsex:pex';
-			blocked[5] = 'minecraft:op';
-			blocked[6] = 'minecraft:deop';
-			let args = msg.content.slice(5, msg.length);
-			for (var aaa = 0; aaa < blocked.length; aaa++) {
-				if(args.includes(blocked[aaa])) {
-					msg.channel.send("``Консоль`` › ``Увы, комманда заблокирована!``");
-					return;
-				}
-			}
 			if(args.length == 0) {
 				msg.channel.send("``Консоль`` › ``Используй так: /cmd <Твоя комманда>``");
 			} else {
