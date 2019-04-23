@@ -11,10 +11,6 @@ client.on('message', msg => {
 		msg.channel.send("``Консоль`` › ``Тут бота использовать нельзя!``");
 		return;
 	}
-	if (msg.channel.get() != client.channels.get("569947791187640330")) {
-		msg.channel.send("``Бот`` › ``Используй бота в канале #комманды-ботов``");
-		return;
-	}
 	if(msg.content == "/cmd") {
 		msg.channel.send("``Консоль`` › ``Используй так: /cmd <Твоя комманда>``");
 	} else {
